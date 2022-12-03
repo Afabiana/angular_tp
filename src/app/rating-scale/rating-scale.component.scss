@@ -1,0 +1,35 @@
+
+.rating {
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+    background: linear-gradient(to right, #ff2600 40%, #ffc922 40%, #ffc922 70%, #00d338 70%);
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    display: flex;
+    width: 14px;
+    font-size: 14px; 
+    justify-content: center;
+    align-items: center;
+    background: #212529;
+    color: white;
+    cursor: pointer;
+}
+
+.rating label {
+    transition: 0.3s;
+}
+
+.rating input[type=radio]:hover ~ label,
+input[type=radio]:checked ~ label {
+    background: none;
+    color: #fff;
+}
+

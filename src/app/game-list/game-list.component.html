@@ -1,0 +1,23 @@
+<div class="row row-cols-5">
+    <div class="game-container" *ngFor="let game of games">
+        <img class="game" [src]="game.image" alt="">
+        <p>
+            {{game.name}}
+            <span class="global-rate" [ngClass]="{'good': game.average>=80,'bad': game.average<50}">
+                {{game.average| number : '1.0-0'}}
+            </span>
+        </p>
+        <!--div que contiene input y boton para subir puntaje-->
+        <div class="collapse show" id="{{game.id}}">
+            <app-rating-scale   [(score)]="game.user_score" [id]="game.id" ></app-rating-scale>  
+            <button class="boton" (click)="addRateGame(game)"
+                type="button" data-bs-toggle="collapse" attr.data-bs-target="#{{game.id}}" aria-expanded="true" attr.aria-controls="{{game.id}}">
+                calificar con {{game.user_score}}
+            </button>
+        </div>
+        <!--div oculto, que aparece una vez ya calificado el juego-->
+        <div class="collapse" id="{{game.id}}">
+            <p>Tu puntaje ha sido guardado</p>
+        </div>
+    </div>
+</div>
