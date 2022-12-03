@@ -10,7 +10,9 @@ import { UserScoresService } from '../user-scores.service';
 })
 
 export class UserScoresComponent implements OnInit {
-
+  //todos los cambios en la lista de juegos calificados son locales.
+  //el unico componente que interactua con la api es GameListComponent
+  
   scoresList$: Observable<Game[]>;
 
   constructor(private score_list : UserScoresService) { 
